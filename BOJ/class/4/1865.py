@@ -19,16 +19,12 @@ if __name__ == '__main__':
     for _ in range(T):
         N, M, W = map(int, input().strip().split())
         edges = []
-        # edges = [[] for _ in range(N+1)]
         for _ in range(M):
             S, E, T = map(int, input().strip().split())
             edges.append((S,E,T))
             edges.append((E,S,T))
-            # edges[S].append((E,T))
-            # edges[E].append((S,T))
         for _ in range(W):
             S, E, T = map(int, input().strip().split())
             edges.append((S,E, -1 * T))
-            # edges[E].append((S,-1 * T))
 
         print('YES') if solution(N, edges) else print('NO')
