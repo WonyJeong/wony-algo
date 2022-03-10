@@ -1,6 +1,4 @@
 from collections import deque
-import sys
-input = sys.stdin.readline
 
 def compare_max_total_array(arr1, arr2):
     for i in range(11):
@@ -30,18 +28,15 @@ def bfs(n, info):
         if cursor == 11:
             if res > 0:
                 scores[10] += res
-
             score = cal_total(info, scores)
             if total_score < score:
                 answer = scores
                 total_score = score
-
             if total_score == score and answer != []:
                 answer = compare_max_total_array(answer, scores)
             continue
 
         q.append([cursor + 1, res, scores])
-
         if res - info[cursor] > 0:
             temp_scores = scores[:]
             temp_scores[cursor] = info[cursor] + 1
