@@ -7,8 +7,10 @@ def solution(N, arr):
     for i in range(N):
         for j in range(N):
             k = arr[i][j]
-            if len(q)
-            heapq.heappush(q, (-k, k))
+            if len(q) > N*N - N:
+                heapq.heappop(q)
+            heapq.heappush(q, (k, k))
+        
     print(q, len(q))
 
 if __name__ == '__main__':
