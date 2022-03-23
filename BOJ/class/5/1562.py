@@ -1,8 +1,8 @@
 import sys
 input = sys.stdin.readline
 
-mod = 10000000000
-
+mod = 1000000000
+      
 def solution(i, j, k):
     if j < 0 or j > 9: return 0
     if i == n:
@@ -10,7 +10,7 @@ def solution(i, j, k):
         else: return 0
 
     if dp[i][j][k] != -1:
-        return dp[i][j][k]
+        return dp[i][j][k] % mod
 
     dp[i][j][k] = 0
     if 0 < j < 9:
@@ -38,4 +38,4 @@ if __name__ == '__main__':
     for i in range(1, 10):
         answer += solution(1, i, 1<<i)
         answer %= mod
-    print(answer)
+    print(answer % mod)
